@@ -3,7 +3,8 @@ function foo() {
   var age = 128
 
   function bar() {
-    console.log(name);
+    // console.log(name);
+    debugger
     console.log(age);
   }
   return bar
