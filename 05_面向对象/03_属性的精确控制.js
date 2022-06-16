@@ -1,5 +1,6 @@
 var obj = {
   name: "hhh",
+  // js没有严格的私有属性。约定俗成以 _ 开头的为私有属性。
   _address: "bj",
 };
 Object.defineProperty(obj, "address", {
@@ -26,5 +27,10 @@ Object.defineProperty(obj, "address", {
   },
 });
 
-obj.address="xxx" // set
+obj.address = "xxx"; // set
 console.log(obj.address); // get xxx
+
+Object.defineProperties(obj, {
+  name: {},
+  age: {},
+});
