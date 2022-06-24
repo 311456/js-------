@@ -4,8 +4,8 @@ var Person = {};
 function createObj(constructorFn, name) {
   var obj = Object.create(constructorFn);
   obj.name = name;
-  obj.eatting = function () {
-    console.log("eatting");
+  obj.eating = function () {
+    console.log("eating");
   };
   return obj;
 }

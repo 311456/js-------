@@ -2,8 +2,8 @@ function Person(name) {
   this.name = name;
   this.friends = [];
 }
-Person.prototype.eatting = function () {
-  console.log(this.name + " eatting");
+Person.prototype.eating = function () {
+  console.log(this.name + " eating");
 };
 
 function Student(sid) {
@@ -18,11 +18,11 @@ Student.prototype.studying = function () {
 
 var s1 = new Student(14);
 // console.log(s1.name);
-// s1.eatting();
+// s1.eating();
 
 //!缺点
 // 1.继承的属性不能查看，不方便使用
-console.log(s1); //不能看见name，eatting等属性
+console.log(s1); //不能看见name，eating等属性
 
 // 2.不同对象互相影响
 var s2 = new Student(444);

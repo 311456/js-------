@@ -2,8 +2,8 @@ function Person(name, friends) {
   this.name = name;
   this.friends = friends;
 }
-Person.prototype.eatting = function () {
-  console.log(this.name + " eatting");
+Person.prototype.eating = function () {
+  console.log(this.name + " eating");
 };
 
 function Student(name, friends, sid) {
