@@ -39,7 +39,7 @@ var btns = document.getElementsByTagName("button");
 //   })(k);
 // }
 
-//! 现在：找到for块级作用域里面的k，每一次的k都不一样
+//! 现在：找到for块级作用域里面的k，每一次的遍历的块级作用域里的k都不一样
  for (let k = 0; k < btns.length; k++) {
   btns[k].onclick = function () {
     console.log(k);
