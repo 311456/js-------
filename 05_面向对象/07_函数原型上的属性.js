@@ -11,7 +11,7 @@ console.log(Object.getOwnPropertyDescriptors(foo.prototype));
 //   }
 // }
 
-// 可以发现函数的构造函数指向本身
+// 可以发现函数的原型对象的constructor属性指向本身
 console.log(foo.prototype.constructor); // [Function: foo]
 console.log(foo.prototype.constructor === foo); // true
 
