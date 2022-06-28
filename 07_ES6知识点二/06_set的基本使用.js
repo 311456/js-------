@@ -30,3 +30,9 @@ set.add({});
 set.add({});
 // 因为对象的地址值不同，所以是不同的元素
 console.log(set); // Set(7) { 4, 5, 7, 99, 22, {}, {} }
+
+//! 数组去重
+const arr = [1, 2, 3, 3, 4, 4];
+const newArr = new Set(arr);
+console.log(Array.from(newArr)); // [ 1, 2, 3, 4 ]
+console.log([...newArr]); // [ 1, 2, 3, 4 ]
