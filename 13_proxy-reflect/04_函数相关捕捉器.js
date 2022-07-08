@@ -3,6 +3,8 @@ function foo(...args) {
 }
 
 const proxyFn = new Proxy(foo, {
+  // thisArg:this
+  // args:函数参数
   apply(target, thisArg, args) {
     console.log("apply");
     target.apply(thisArg, args);

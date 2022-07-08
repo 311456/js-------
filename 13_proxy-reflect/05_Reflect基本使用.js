@@ -11,6 +11,7 @@ const proxyObj = new Proxy(obj, {
   },
   set(target, key, newValue) {
     console.log(target, `${key}设置新值:${newValue}`);
+    // Reflect 返回一个布尔值，可以通过该返回值确定是否设置成功
     Reflect.set(target, key, newValue);
   },
 });

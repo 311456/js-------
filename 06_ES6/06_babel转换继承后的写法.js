@@ -96,6 +96,7 @@ function _createSuper(Derived) {
       var NewTarget = _getPrototypeOf(this).constructor;
       //! Reflect所作的事情：通过Super创建一个实例，然后将这个实例的原型的constructor指向NewTarget，然后将该实例返回
       // 即：通过Person创建一个实例，然后将这个实例的原型的constructor指向Student
+      // 调用Super方法，创建出来的对象的类型是NewTarget类型
       result = Reflect.construct(Super, arguments, NewTarget);
     } else {
       result = Super.apply(this, arguments);
@@ -146,7 +147,7 @@ function _getPrototypeOf(o) {
       };
   return _getPrototypeOf(o);
 }
-// 边界判断。class不能当作普通函数调用
+// 边界判断。class不能当作普通函数调用。所以借助Reflect.construct()进行继承的实现
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
