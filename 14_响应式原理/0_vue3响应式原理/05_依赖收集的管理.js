@@ -23,8 +23,9 @@ const weakMap = new WeakMap();
  * @returns 对象属性的依赖
  */
 function getDepend(target, key) {
+  // weakMap.set(target).set("name")
   let map = weakMap.get(target);
-  // 第一次访问说没有数据的
+  // 第一次访问是没有数据的
   if (!map) {
     map = new Map();
     weakMap.set(target, map);
