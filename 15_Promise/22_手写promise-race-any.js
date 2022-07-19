@@ -1,7 +1,6 @@
 const PROMISE_STATUS_PENDING = "pending";
 const PROMISE_STATUS_FULFILLED = "fulfilled";
 const PROMISE_STATUS_REJECTED = "rejected";
-//! 已实现：finally方法
 
 // utils
 /**
