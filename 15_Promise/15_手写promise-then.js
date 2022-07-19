@@ -5,13 +5,17 @@ const PROMISE_STATUS_REJECTED = "rejected";
 
 //! 缺点1：创建之后不调用then会报错
 //! 原因：因为没有传入对应的resolve和reject函数，那么在constructor中的onFulfilled和onRejected函数就没有对应的值,为undefined
-//! 缺点2：不可以链式调用以及其他复杂的用法 
+//! 缺点2：不可以链式调用以及重复调用、其他复杂的用法
 class HxPromise {
   constructor(executor) {
     // 通过status来决定状态，状态一旦确定便不可更改
     this.status = PROMISE_STATUS_PENDING;
+    this.value = undefined;
+    this.reason = undefined;
     const resolve = (value) => {
       if (this.status === PROMISE_STATUS_PENDING) {
+        // 将修改状态的代码放在queue外面，是为了实现状态的确定性。
+        // 如果放在外面，则调用resolve后还可以调用reject（因为调用时状态还是pending，2个的判断都会通过）
         this.status = PROMISE_STATUS_FULFILLED;
         // 通过setTimeout将代码添加到宏任务中，这样不会阻塞主线程的执行，当执行then之后就会有OnFulfilled函数了
         // 但是setTimeout也不好，换用queueMicrotask，使用方法同setTimeout，不过queueMicrotask是将代码添加到微任务中

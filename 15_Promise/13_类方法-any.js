@@ -24,3 +24,4 @@ Promise.any([p1, p2, p3])
 
 // 执行结果：final res: 3333
 // 全为reject时，执行结果：err: [AggregateError: All promises were rejected]
+// 错误信息通过 .errors 获取
