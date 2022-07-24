@@ -16,7 +16,7 @@ promise.then((res) => {
   console.log("then res 22----", res);
 });
 
-//! 2.then的返回值 ：then本身是有返回值的，值为Promise（链式调用）
+//! 2.then的返回值 ：then本身是有返回值的，值是一个Promise（链式调用）
 // 2.1：如果我们手动返回普通值，那么这个普通值将会被作为一个新的Promise的resolve值
 promise
   .then((res) => {

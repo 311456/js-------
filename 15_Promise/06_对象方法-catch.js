@@ -25,14 +25,24 @@ const promise = new Promise((resolve, reject) => {
 //     console.log(err);
 //   });
 
-//! 3.返回值
+//! 3.返回值:同理then的返回值
 promise
   .catch((err) => {
+    // return "normal";
     return new Promise((resolve, reject) => {
+      // resolve("new Promise resolve");
       reject("catch err");
       // throw new Error("then err");
     });
   })
+  .then(
+    (res) => {
+      console.log("catch res:", res);
+    },
+    (err) => {
+      console.log("then err:", err);
+    }
+  )
   .catch((err) => {
     console.log("catch2---", err);
   });
