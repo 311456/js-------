@@ -1,0 +1,16 @@
+{
+  "name": "hhxx",
+  "version": "1.0.1",
+  "description": "test npm package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anjxx",
+  "license": "MIT",
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/311456/hx"
+  },
+  "homepage": "https://github.com/311456/hx"
+}
