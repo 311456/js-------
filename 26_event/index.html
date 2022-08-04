@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: aquamarine;
+  }
+
+  .span {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    background-color: aqua;
+  }
+</style>
+
+<body>
+  <!-- 方式一： -->
+  <!-- <div class="box" onclick="handleFn()">div
+    <span class="span" onclick="console.log('js method----span was clicked')">span</span>
+  </div> -->
+  <div class="box">div
+    <span class="span">span</span>
+  </div>
+
+  <a href="http://www.baidu.com">baidu</a>
+  <script>
+    function handleFn() {
+      console.log("js method----div was clicked")
+    }
+  </script>
+  <!-- <script src="./01_事件监听.js"></script> -->
+  <!-- <script src="./02_事件流.js"></script> -->
+  <script src="./03_事件对象.js"></script>
+</body>
+
+</html>
