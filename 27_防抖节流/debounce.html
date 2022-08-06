@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+  <!-- 2.4 -->
+  <button>取消</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/underscore@latest/underscore-umd-min.js"></script>
+  <!-- <script src="./01_防抖-基本实现.js"></script> -->
+  <!-- <script src="./02_防抖-this-参数处理.js"></script> -->
+  <!-- <script src="./03_防抖-立即执行.js"></script> -->
+  <!-- <script src="./04_防抖-取消防抖.js.js"></script> -->
+  <script src="./05_防抖-返回值-callback.js"></script>
+  <!-- <script src="./06_防抖-返回值-promise.js"></script> -->
+
+  <script>
+    const inputEl = document.querySelector("input")
+    let counter = 0
+    const handleInputChange = function (event) {
+      console.log(`发送${++counter}次网络请求`)
+      console.log(this, event)
+      // 2.5
+      return "this is a return value"
+    }
+    // 1.使用第三方库underscore
+    // inputEl.oninput = _.debounce(handleInputChange, 2000) 
+
+    // 2.使用自己实现的防抖函数
+    // 2.1
+    // inputEl.oninput = debounce(handleInputChange, 2000)
+    // 2.2
+    // inputEl.oninput = debounce(handleInputChange, 2000)
+    // 2.3
+    // inputEl.oninput = debounce(handleInputChange, 2000, true)
+    // 2.4
+    // const btnEl = document.querySelector("button")
+    // const _debounce = debounce(handleInputChange, 2000)
+    // inputEl.oninput = _debounce
+    // btnEl.onclick = function () {
+    //   _debounce.cancel()
+    // }
+    // 2.5
+    // inputEl.oninput = debounce(handleInputChange, 2000, false, (res) => {
+    //   console.log("callback----",res)
+    // })
+    // 2.6
+    const _debounce = debounce(handleInputChange, 2000)
+    const temp = (...args) => {
+      _debounce.apply(inputEl, args).then(res => {
+        console.log("promise----", res)
+      })
+    }
+    inputEl.oninput = temp
+  </script>
+</body>
+
+</html>
