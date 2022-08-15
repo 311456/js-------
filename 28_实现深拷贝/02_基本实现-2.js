@@ -8,15 +8,16 @@ function isObject(value) {
  * @returns new value
  */
 function cloneDeep(value) {
-  // 1.属性为对象或者数组的处理。
+  //! 提前判断性能会好一点。 
+  // 1.对普通值的处理。
+  if (!isObject(value)) {
+    return value;
+  }
+
   let newObj = Array.isArray(value) ? [] : {};
   for (let key in value) {
-    if (!isObject(value[key])) {
-      newObj[key] = value[key];
-    } else {
-      // 2.如果是对象或数组就递归调用自身。
-      newObj[key] = cloneDeep(value[key]);
-    }
+    // 2.如果是对象或数组就递归调用自身。
+    newObj[key] = cloneDeep(value[key]);
   }
   // 返回新生成的对象
   return newObj;
